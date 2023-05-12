@@ -1,0 +1,25 @@
+{
+  "name": "signite-core",
+  "version": "1.0.0",
+  "description": "core module for game engine",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marchuanv/signite-core.git"
+  },
+  "keywords": [
+    "engine"
+  ],
+  "author": "Marchuan Van Der Merwe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marchuanv/signite-core/issues"
+  },
+  "homepage": "https://github.com/marchuanv/signite-core#readme"
+}
