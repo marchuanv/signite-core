@@ -12,16 +12,16 @@ server.on('request', (request, response) => {
         console.log('request received: ', bodyStr);
         console.log('request path: ', request.url);
         if (request.url === '/') {
-            response.setHeader('content-type', 'text/html');
             const indexHtmlStr = fs.readFileSync(path.join(__dirname, 'index.html'));
+            response.setHeader('content-type', 'text/html');
             response.statusMessage = 'Success';
             response.statusCode = 200;
             response.end(indexHtmlStr);
         } else {
             const resourcePath = path.join(__dirname, request.url);
             if (fs.existsSync(resourcePath)) {
-                response.setHeader('content-type', 'application/javascript');
                 const indexHtmlStr = fs.readFileSync(resourcePath);
+                response.setHeader('content-type', 'application/javascript');
                 response.statusMessage = 'Success';
                 response.statusCode = 200;
                 response.end(indexHtmlStr);
