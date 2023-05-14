@@ -19,6 +19,8 @@
     </style>
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="lib/signite-core.js"></script>
+    <script src="lib/signite-player-manager.js"></script>
+    <script src="lib/signite-camera-manager.js"></script>
     <script src="lib/signite-scene-manager.js"></script>
   </head>
   <body>
@@ -26,10 +28,26 @@
     <script>
         const canvas = document.getElementById("renderCanvas"); // Get the canvas element
         const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+        const cameraManager = new SceneManager({ playerManager });
         const scene = new SceneManager({ engine, canvas });
-        scene.create();
-        scene.update();
-        scene.render();
+
+
+
+
+        const sceneManager = new SceneManager({ engine });
+
+        const playerManager = new PlayerManager({ sceneManager });
+
+        const cameraManager = new CameraManager({  });
+
+
+        sceneManager.create();
+        engine.runRenderLoop(function(){
+          sceneManager.update();
+          sceneManager.render();
+        });
+
         window.addEventListener("resize", function () {
           engine.resize();
         });
