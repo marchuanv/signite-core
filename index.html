@@ -28,26 +28,15 @@
     <script>
         const canvas = document.getElementById("renderCanvas"); // Get the canvas element
         const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-
-        const cameraManager = new SceneManager({ playerManager });
-        const scene = new SceneManager({ engine, canvas });
-
-
-
-
         const sceneManager = new SceneManager({ engine });
-
         const playerManager = new PlayerManager({ sceneManager });
-
-        const cameraManager = new CameraManager({  });
-
-
-        sceneManager.create();
+        const cameraManager = new CameraManager({ sceneManager, playerManager });
         engine.runRenderLoop(function(){
           sceneManager.update();
+          playerManager.update();
+          cameraManager.update();
           sceneManager.render();
         });
-
         window.addEventListener("resize", function () {
           engine.resize();
         });
